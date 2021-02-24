@@ -27,16 +27,20 @@ public class Procedimento implements Serializable {
 	@JoinColumn(name="paciente_id")
 	private Paciente paciente;
 	
+	@OneToOne
+	@JoinColumn(name="referencia_id")
+	private Referencia referencia;
+	
 	public Procedimento() {
-		
 	}
 
-	public Procedimento(Integer id, Integer tipo, Integer premio, Paciente paciente) {
+	public Procedimento(Integer id, Integer tipo, Integer premio, Paciente paciente, Referencia referencia) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
 		this.premio = premio;
 		this.paciente = paciente;
+		this.referencia = referencia;
 		
 	}
 
@@ -64,15 +68,20 @@ public class Procedimento implements Serializable {
 		this.premio = premio;
 	}
 	
-
-	
-
 	public Paciente getPaciente() {
 		return paciente;
 	}
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+	}
+	
+	public Referencia getReferencia() {
+		return referencia;
+	}
+
+	public void setReferencia(Referencia referencia) {
+		this.referencia = referencia;
 	}
 
 	@Override

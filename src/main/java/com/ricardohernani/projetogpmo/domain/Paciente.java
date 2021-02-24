@@ -92,6 +92,4 @@ public class Paciente implements Serializable {
 		return true;
 	}
 	
-	
-	
 }
