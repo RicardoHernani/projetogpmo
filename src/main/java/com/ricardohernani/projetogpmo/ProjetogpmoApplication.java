@@ -57,6 +57,7 @@ public class ProjetogpmoApplication implements CommandLineRunner {
 		pacienteRepository.saveAll(Arrays.asList(pcte1, pcte2));
 		procedimentoRepository.saveAll(Arrays.asList(proc1, proc2, proc3, proc4));
 		
+		
 	}
 
 }

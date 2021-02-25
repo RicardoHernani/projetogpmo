@@ -7,19 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ricardohernani.projetogpmo.domain.Paciente;
-import com.ricardohernani.projetogpmo.services.PacienteService;
+import com.ricardohernani.projetogpmo.domain.Referencia;
+import com.ricardohernani.projetogpmo.services.ReferenciaService;
+
+
 
 @RestController
-@RequestMapping(value="/pacientes")
-public class PacienteResource {
+@RequestMapping(value="/referencias")
+public class ReferenciaResource {
 
 	@Autowired
-	private PacienteService service;
+	private ReferenciaService service;
 	
-	@RequestMapping (value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Paciente obj = service.find(id);
+	@RequestMapping (value="/{codigo}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer codigo) {
+		Referencia obj = service.find(codigo);
 		return ResponseEntity.ok().body(obj);
 	}
 	
