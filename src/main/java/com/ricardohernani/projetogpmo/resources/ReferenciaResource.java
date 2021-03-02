@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ricardohernani.projetogpmo.domain.Referencia;
 import com.ricardohernani.projetogpmo.services.ReferenciaService;
 
-
-
 @RestController
 @RequestMapping(value="/referencias")
 public class ReferenciaResource {

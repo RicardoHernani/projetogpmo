@@ -1,3 +1,4 @@
+
 package com.ricardohernani.projetogpmo.domain;
 
 import java.io.Serializable;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Paciente implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,6 +23,8 @@ public class Paciente implements Serializable {
 	private Integer id;
 	
 	private Integer registro;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data;
 	
 	@OneToMany(mappedBy = "paciente")
