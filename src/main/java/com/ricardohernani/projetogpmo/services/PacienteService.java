@@ -25,4 +25,9 @@ public class PacienteService {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+	
+	public Paciente update(Paciente obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }

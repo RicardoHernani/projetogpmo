@@ -18,7 +18,7 @@ public class ReferenciaResource {
 	private ReferenciaService service;
 	
 	@RequestMapping (value="/{codigo}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer codigo) {
+	public ResponseEntity<Referencia> find(@PathVariable Integer codigo) {
 		Referencia obj = service.find(codigo);
 		return ResponseEntity.ok().body(obj);
 	}
