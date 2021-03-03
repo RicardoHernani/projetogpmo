@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class Paciente implements Serializable {
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data;
 	
-	@OneToMany(mappedBy = "paciente")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "paciente")
 	private List<Procedimento> procedimentos = new ArrayList<>();
 	
 	public Paciente() {
