@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ricardohernani.projetogpmo.domain.Paciente;
+import com.ricardohernani.projetogpmo.dto.PacienteNewDTO;
 import com.ricardohernani.projetogpmo.services.PacienteService;
 
 @RestController
@@ -26,7 +27,7 @@ public class PacienteResource {
 		Paciente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+	/*
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Paciente obj) {
 		obj = service.insert(obj);
@@ -34,6 +35,7 @@ public class PacienteResource {
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 		}
+	*/
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> uptade(@RequestBody Paciente obj, @PathVariable Integer id) {
@@ -47,5 +49,14 @@ public class PacienteResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> insert(@RequestBody PacienteNewDTO objDto) {
+		Paciente obj = service.fromDTO(objDto);
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+		}
 	
 }
